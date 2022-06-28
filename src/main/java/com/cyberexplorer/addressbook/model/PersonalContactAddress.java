@@ -1,5 +1,7 @@
 package com.cyberexplorer.addressbook.model;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.DiscriminatorValue;
@@ -13,11 +15,7 @@ public class PersonalContactAddress extends ContactAddress{
 	private static final long serialVersionUID = 1L;
 	protected String messengerAccount;
 	public PersonalContactAddress(String name, String phoneNumber, String email, String addressType, boolean defaultAddress, String messengerAccount) {
-		this.name = name;
-		this.phoneNumber = phoneNumber;
-		this.emailAddress = email;
-		this.addressType = addressType;
-		this.defaultAddress= defaultAddress;
+		super(name, phoneNumber, email, addressType, defaultAddress);
 		this.messengerAccount = messengerAccount;
 	}
 

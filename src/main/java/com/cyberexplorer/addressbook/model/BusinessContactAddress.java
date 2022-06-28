@@ -1,5 +1,7 @@
 package com.cyberexplorer.addressbook.model;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.DiscriminatorValue;
@@ -14,11 +16,7 @@ public class BusinessContactAddress extends ContactAddress {
 	protected String website;
 	
 	public BusinessContactAddress(String name, String phoneNumber, String email, String addressType, boolean defaultAddress, String website) {
-		this.name = name;
-		this.phoneNumber = phoneNumber;
-		this.emailAddress = email;
-		this.addressType = addressType;
-		this.defaultAddress = defaultAddress;
+		super(name, phoneNumber, email, addressType, defaultAddress);
 		this.website = website;
 	}
 

@@ -37,7 +37,7 @@ public class ContactAddressController {
 
     @PostMapping("/contact")
     ResponseEntity<Contact> createContact(@Valid @RequestBody ContactAddress contactAddress) throws URISyntaxException {
-        log.info("Request to create group: {}", contactAddress);
+        log.info("Request to create contact: {}", contactAddress);
         ContactAddress result = contactAddressRepository.save(contactAddress);
         return ResponseEntity.created(new URI("/api/contact/" + result.getId()))
                 .body(result);
@@ -45,14 +45,14 @@ public class ContactAddressController {
 
     @PutMapping("/contact/{id}")
     ResponseEntity<Contact> updateGroup(@Valid @RequestBody ContactAddress contactAddress) {
-        log.info("Request to update group: {}", contactAddress);
+        log.info("Request to update contact: {}", contactAddress);
         Contact result =contactAddressRepository.save(contactAddress);
         return ResponseEntity.ok().body(result);
     }
 
     @DeleteMapping("/contact/{id}")
     public ResponseEntity<?> deleteGroup(@PathVariable Long id) {
-        log.info("Request to delete group: {}", id);
+        log.info("Request to delete contact: {}", id);
         contactAddressRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }
