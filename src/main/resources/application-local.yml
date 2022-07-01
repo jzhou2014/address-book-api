@@ -1,0 +1,12 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource:
+    url: jdbc:postgresql://localhost:5008/addressbookdb
+    username: addressbookadmin
+    password: addressbookadmin
+
+server:
+  port: 8080

@@ -29,7 +29,7 @@ public class ContactAddressController {
     }
 
     @GetMapping("/contact/{id}")
-    ResponseEntity<?> getContactAddress(@PathVariable Long id) {
+    ResponseEntity<?> getContactAddress(@PathVariable Integer id) {
         Optional<ContactAddress> contactAddress = contactAddressRepository.findById(id);
         return contactAddress.map(response -> ResponseEntity.ok().body(response))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
@@ -51,7 +51,7 @@ public class ContactAddressController {
     }
 
     @DeleteMapping("/contact/{id}")
-    public ResponseEntity<?> deleteGroup(@PathVariable Long id) {
+    public ResponseEntity<?> deleteGroup(@PathVariable Integer id) {
         log.info("Request to delete contact: {}", id);
         contactAddressRepository.deleteById(id);
         return ResponseEntity.ok().build();

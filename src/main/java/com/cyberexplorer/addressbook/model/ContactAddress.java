@@ -13,6 +13,7 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @Entity
+@Table(name = "contact_address")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(
 		discriminatorType = DiscriminatorType.STRING,
@@ -31,13 +32,18 @@ public abstract class ContactAddress implements Contact, Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", updatable = false, nullable = false)
-	private Long id;
+	private Integer id;
 	@NonNull
+	@Column(name = "name")
 	protected String name;
+
+	@Column(name = "phone_number")
 	protected String phoneNumber;
+	@Column(name = "email_address")
 	protected String emailAddress;
-	@Column(name = "address_type", insertable = false, updatable = false, nullable = false)
+	@Column(name = "address_type", insertable = false, updatable = false)
 	protected String addressType;
+	@Column(name = "default_address")
 	protected boolean defaultAddress;
 
 	public ContactAddress(String name, String phoneNumber, String email, String addressType, boolean defaultAddress) {

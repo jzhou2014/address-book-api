@@ -3,6 +3,9 @@
 This example app shows how to create a Spring Boot API and CRUD (create, read, update, and delete) its data with a React app.
 
 **Prerequisites:** [Java 17](http://sdkman.io)
+```bash
+$ sdk use java 17.0.3-zulu
+````
 
 * [Getting Started](#getting-started)
 * [Links](#links)
