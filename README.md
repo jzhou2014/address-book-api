@@ -47,7 +47,7 @@ To run the server, run:
 ```
 
 ## DB Queries
-You can run the addressbook DB using `pgcli` with the following command:
+You can run the addressbook DB using [pgcli](https://www.pgcli.com/) with the following command:
 ```bash
 addressbookdb
 
