@@ -40,10 +40,15 @@ cd address-book-api
 
 This will get a copy of the project installed locally. To install all of its dependencies and start each app, follow the instructions below.
 
-To run the server, run:
+Start Docker desktop from your Mac or Windows.
+
+To run the servers (including postgresql, application servers), run:
+```bash
+$ docker-compose up
+````
  
 ```bash
-./mvnw spring-boot:run
+$ ./mvnw spring-boot:run
 ```
 
 ## DB Queries
@@ -51,7 +56,7 @@ You can run the addressbook DB using [pgcli](https://www.pgcli.com/) with the fo
 ```bash
 addressbookdb
 
-PGPASSWORD=addressadmin pgcli --user addressbookadmin --host localhost --dbname addressbookdb --port 5008
+$ PGPASSWORD=addressadmin pgcli --user addressbookadmin --host localhost --dbname addressbookdb --port 5008
 ```
 
 
