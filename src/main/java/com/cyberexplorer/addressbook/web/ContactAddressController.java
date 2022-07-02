@@ -25,7 +25,7 @@ public class ContactAddressController {
 
     @GetMapping("/contacts")
     Collection<ContactAddress> contactaddresses() {
-        return contactAddressRepository.findAll();
+        return contactAddressRepository.findAllByOrderByIdDesc();
     }
 
     @GetMapping("/contact/{id}")
