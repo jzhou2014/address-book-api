@@ -11,6 +11,7 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -25,7 +26,8 @@ public class ContactAddressController {
 
     @GetMapping("/contacts")
     Collection<ContactAddress> contactaddresses() {
-        return contactAddressRepository.findAllByOrderByIdDesc();
+        List<ContactAddress> contactAddressList = contactAddressRepository.findAllByOrderByIdDesc();
+        return contactAddressList;
     }
 
     @GetMapping("/contact/{id}")
