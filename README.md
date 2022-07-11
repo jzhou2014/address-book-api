@@ -72,4 +72,4 @@ Please send any questions to email: xinyizhou1999@hotmail.com.
 
 ## License
 
-Apache 2.0, see [LICENSE](LICENSE).
+MIT License, see [LICENSE](LICENSE).
