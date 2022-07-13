@@ -48,7 +48,7 @@ $ docker-compose up
 ````
  
 ```bash
-$ ./mvnw spring-boot:run
+$ mvn spring-boot:run -D spring-boot.run.profiles=local
 ```
 
 ## DB Queries

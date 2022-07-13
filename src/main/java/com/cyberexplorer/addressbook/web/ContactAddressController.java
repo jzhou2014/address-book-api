@@ -27,6 +27,7 @@ public class ContactAddressController {
     @GetMapping("/contacts")
     Collection<ContactAddress> contactaddresses() {
         List<ContactAddress> contactAddressList = contactAddressRepository.findAllByOrderByIdDesc();
+        log.info("The count of contact address returned: " + contactAddressList.size());
         return contactAddressList;
     }
 
