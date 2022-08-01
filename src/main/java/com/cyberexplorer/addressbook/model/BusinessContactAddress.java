@@ -18,8 +18,8 @@ public class BusinessContactAddress extends ContactAddress {
 	@Column(name = "website")
 	protected String website;
 	
-	public BusinessContactAddress(String name, String phoneNumber, String email, String addressType, boolean defaultAddress, String website) {
-		super(name, phoneNumber, email, addressType, defaultAddress);
+	public BusinessContactAddress(Integer id, String name, String phoneNumber, String email, String addressType, boolean defaultAddress, String website) {
+		super(id, name, phoneNumber, email, addressType, defaultAddress);
 		this.website = website;
 	}
 

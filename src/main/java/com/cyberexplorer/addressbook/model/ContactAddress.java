@@ -46,7 +46,8 @@ public abstract class ContactAddress implements Contact, Serializable {
 	@Column(name = "default_address")
 	protected boolean defaultAddress;
 
-	public ContactAddress(String name, String phoneNumber, String email, String addressType, boolean defaultAddress) {
+	public ContactAddress(Integer id, String name, String phoneNumber, String email, String addressType, boolean defaultAddress) {
+		this.id = id;
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.emailAddress = email;

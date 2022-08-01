@@ -20,7 +20,7 @@ class Initializer implements CommandLineRunner {
 
     @Override
     public void run(String... strings) {
-        List<ContactAddress> contactAddressList = Arrays.asList(new BusinessContactAddress("James Chou", "636-172-7246", "james_chou@abc.com", "BUSINESS", true, "www.Sharkbeyond.com"), new PersonalContactAddress("Sandy Davis", "314-123-4567", "SandyDavis@hotmail.com", "PERSONAL", true, "@SandyDavis"));
+        List<ContactAddress> contactAddressList = Arrays.asList(new BusinessContactAddress(null, "James Chou", "636-172-7246", "james_chou@abc.com", "BUSINESS", true, "www.Sharkbeyond.com"), new PersonalContactAddress(null, "Sandy Davis", "314-123-4567", "SandyDavis@hotmail.com", "PERSONAL", true, "@SandyDavis"));
         contactAddressList.forEach(contactAddress -> contactAddressRepository.save(contactAddress));
         contactAddressRepository.findAllByOrderByIdDesc().forEach(System.out::println);
     }
