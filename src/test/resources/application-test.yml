@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: address-book-api
+  config:
+    activate:
+      on-profile: test
+  liquibase:
+    enabled: false
+    defaultSchema: PUBLIC
