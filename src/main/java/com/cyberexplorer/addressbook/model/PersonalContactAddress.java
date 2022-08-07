@@ -17,8 +17,8 @@ public class PersonalContactAddress extends ContactAddress{
 	private static final long serialVersionUID = 1L;
 	@Column(name = "messenger_account")
 	protected String messengerAccount;
-	public PersonalContactAddress(String name, String phoneNumber, String email, String addressType, boolean defaultAddress, String messengerAccount) {
-		super(name, phoneNumber, email, addressType, defaultAddress);
+	public PersonalContactAddress(Integer id, String name, String phoneNumber, String email, String addressType, boolean defaultAddress, String messengerAccount) {
+		super(id, name, phoneNumber, email, addressType, defaultAddress);
 		this.messengerAccount = messengerAccount;
 	}
 
