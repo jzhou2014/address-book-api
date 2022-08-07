@@ -1,4 +1,8 @@
+server:
+  port: 8080
 spring:
+  application:
+    name: address-book-api
   jpa:
     hibernate:
       ddl-auto: update
@@ -7,10 +11,15 @@ spring:
     url: jdbc:postgresql://localhost:5008/addressbookdb
     username: addressbookadmin
     password: addressbookadmin
-
-server:
-  port: 8080
-
+  liquibase:
+    url: jdbc:postgresql://localhost:5008/addressbookdb
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+    user: addressbookadmin
+    password: addressbookadmin
+    parameters:
+      appUser: addressbookadmin
+      appSchema: public
+      appName: ${spring.application.name}
 logging:
   level:
     org.springframework: ERROR
