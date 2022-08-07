@@ -1,26 +1,5 @@
 spring:
   application:
-<<<<<<< HEAD
-        name: address-book-api
-  config:
-    activate:
-      on-profile: test
-  datasource:
-    jpa:
-      hibernate:
-        ddl-auto: none
-      properties:
-        hibernate:
-          show_sql: true
-          jdbc.lob.non_contextual_creation: true
-      generate-ddl: false
-  liquibase:
-    enabled: false
-    defaultSchema: PUBLIC
-  sql:
-    init:
-      platform: pg-embedded
-=======
     name: address-book-api
   config:
     activate:
@@ -28,4 +7,3 @@ spring:
   liquibase:
     enabled: false
     defaultSchema: PUBLIC
->>>>>>> origin/main
