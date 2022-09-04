@@ -1,3 +1,5 @@
+server:
+  port: 8080
 spring:
   jpa:
     hibernate:
@@ -7,16 +9,28 @@ spring:
     url: jdbc:postgresql://localhost:5008/addressbookdb
     username: addressbookadmin
     password: addressbookadmin
-
-server:
-  port: 8080
-
+  security:
+    oauth2:
+      client:
+        provider:
+          oidc:
+            issuer-uri: http://localhost:8081/auth/realms/Localdev
+            # localhost will be bound to the guest (container), not the host
+            # to run KeyCloak as a daemon, i.e., npm run docker:keycloak:up, /etc/hosts must be edited
+            # and the issuer-uri should be as follows:
+            # issuer-uri: http://keycloak:9080/auth/realms/Localdev
+        registration:
+          oidc:
+            client-id: address-book
+            client-secret: gLgO1cpaFf3wo57UvmaOKZJ3Tph9dYwi
+            scope: openid,profile,email
 logging:
   level:
     org.springframework: ERROR
+    org.springframework.web.client.RestTemplate: DEBUG
     com.cyberexplorer: DEBUG
   pattern:
     console: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
-    file: "%d %p %c{1.} [%t] %m%n"
-  file:
-    name: addressbook.log
+#    file: "%d %p %c{1.} [%t] %m%n"
+#  file:
+#    name: addressbook.log

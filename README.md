@@ -50,6 +50,7 @@ $ docker-compose up
 ```bash
 $ mvn spring-boot:run -D spring-boot.run.profiles=local
 ```
+Access available rest endpoints at `http://localhost:8080/api/userClaims` `http://localhost:8080/api/user`
 
 ## DB Queries
 You can run the addressbook DB using [pgcli](https://www.pgcli.com/) with the following command:
@@ -58,7 +59,6 @@ addressbookdb
 
 $ PGPASSWORD=addressadmin pgcli --user addressbookadmin --host localhost --dbname addressbookdb --port 5008
 ```
-
 
 ## Links
 
