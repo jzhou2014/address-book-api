@@ -60,6 +60,34 @@ addressbookdb
 $ PGPASSWORD=addressadmin pgcli --user addressbookadmin --host localhost --dbname addressbookdb --port 5008
 ```
 
+## Keycloak
+[Keycloak](https://www.keycloak.org/) is the default OpenID Connect server.
+To log into your application, you’ll need to have [Keycloak](https://www.keycloak.org/) up and running. You need to create the realm, client and user with Keycloak admin.
+
+**Note:**
+For KeyCloak 16.1.0 on Apple Silicon (M1)
+KeyCloak may misbehave on Apple Silicon in Compatability Mode and the solution is not obvious. You may want to build the KeyCloak image locally to address. The following steps have been shown to work:
+1. Clone Keycloak containers repository:
+```bash 
+git clone git@github.com:keycloak/keycloak-containers.git
+```   
+2. Open server directory:
+```bash
+cd keycloak-containers/server
+```
+3. Checkout at desired version:
+```bash
+git checkout 16.1.0
+```
+4. Build docker image:
+```bash
+docker build -t jboss/keycloak:16.1.0 .
+```
+Run Keycloak:
+```bash
+$ docker run --rm -p 8081:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin jboss/keycloak:16.1.0
+```
+
 ## Links
 
 This example uses the following open source libraries:
