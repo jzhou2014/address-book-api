@@ -87,6 +87,13 @@ Run Keycloak:
 ```bash
 $ docker run --rm -p 8081:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin jboss/keycloak:16.1.0
 ```
+5. Access Keycloak via the admin console and create your Realm - http://localhost:8081/auth/realms/Localdev
+6. Click on "Clients",create a client - address-book, and save.
+7. Fill in the client's information (Client ID: address-book, Client Protocol: openid-connect, Access Type: confidential
+   Standard Flow Enabled/Implicit Flow Enabled/Direct Access Grants Enabled/Service Accounts Enabled/OAuth 2.0 Device Authorization Grant Enabled
+   ON, Valid Redirect URIs: localhost:8080, other fields are filled by default) and save.
+8. If needed, create realm roles for clients
+9. Click on "Users" and create an user - username: developer password: developer email: developer@hotmail.com and Save.
 
 ## Links
 
