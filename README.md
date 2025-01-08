@@ -50,6 +50,7 @@ $ docker-compose up
 ```bash
 $ mvn spring-boot:run -D spring-boot.run.profiles=local
 ```
+Access available rest endpoints at `http://localhost:8080/api/userClaims` `http://localhost:8080/api/user`
 
 ## DB Queries
 You can run the addressbook DB using [pgcli](https://www.pgcli.com/) with the following command:
@@ -59,6 +60,40 @@ addressbookdb
 $ PGPASSWORD=addressadmin pgcli --user addressbookadmin --host localhost --dbname addressbookdb --port 5008
 ```
 
+## Keycloak
+[Keycloak](https://www.keycloak.org/) is the default OpenID Connect server.
+To log into your application, you’ll need to have [Keycloak](https://www.keycloak.org/) up and running. You need to create the realm, client and user with Keycloak admin.
+
+**Note:**
+For KeyCloak 16.1.0 on Apple Silicon (M1)
+KeyCloak may misbehave on Apple Silicon in Compatability Mode and the solution is not obvious. You may want to build the KeyCloak image locally to address. The following steps have been shown to work:
+1. Clone Keycloak containers repository:
+```bash 
+git clone git@github.com:keycloak/keycloak-containers.git
+```   
+2. Open server directory:
+```bash
+cd keycloak-containers/server
+```
+3. Checkout at desired version:
+```bash
+git checkout 16.1.0
+```
+4. Build docker image:
+```bash
+docker build -t jboss/keycloak:16.1.0 .
+```
+Run Keycloak:
+```bash
+$ docker run --rm -p 8081:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin jboss/keycloak:16.1.0
+```
+5. Access Keycloak via the admin console and create your Realm - http://localhost:8081/auth/realms/Localdev
+6. Click on "Clients",create a client - address-book, and save.
+7. Fill in the client's information (Client ID: address-book, Client Protocol: openid-connect, Access Type: confidential
+   Standard Flow Enabled/Implicit Flow Enabled/Direct Access Grants Enabled/Service Accounts Enabled/OAuth 2.0 Device Authorization Grant Enabled
+   ON, Valid Redirect URIs: localhost:8080, other fields are filled by default) and save.
+8. If needed, create realm roles for clients
+9. Click on "Users" and create an user - username: developer password: developer email: developer@hotmail.com and Save.
 
 ## Links
 
